@@ -1,4 +1,8 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
-def saludo(request):
-	return HttpResponse("Puto el que lee")
+def Inicio(request):
+	return render(request, 'home.html')
+
+def pagina2(request):
+	return render(request, 'pagina2.html')

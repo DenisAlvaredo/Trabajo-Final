@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nombre de la Pagina</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'css/estilos.css' %}"/>
+</head>
+<body>
+	<table id="franja" border="2" cellspacing="5">
+		<tr>
+			<td class="celda" id="titulo">Titulo/Categoria</td>
+			<td class="celda" id="buscar">Buscar</td>
+			<td class="celda" id="boton_buscar">ic bus</td>
+			<td class="celda" id="iniciar">Iniciar Sesion</td>
+			<td class="celda" id="registrar">Registrarse</td>
+		</tr>
+	</table>
+ <div style="text-align: center; margin-top: 100px; margin-bottom: 50px; font-family: Cursive, sans-serif;"><h5> ENCABEZADO </h5></div>
+ 	<h5>ola ke ase</h5>
+
+    {% block content %}
+    ESTAS EN HOME
+
+    <a href="{% url 'segunda' %}">Siguientee</a>
+    {% endblock %}
+
+
+
+   <div style="text-align: center; margin: 100px; font-family: Courier New, sans-serif;"><h5> PIE DE PAGINA </h5></div>
+</body>
+</html>
