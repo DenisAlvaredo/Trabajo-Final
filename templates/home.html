@@ -7,17 +7,25 @@
 	<link rel="stylesheet" href="{% static 'css/estilos.css' %}"/>
 </head>
 <body>
-	<table id="franja" border="2" cellspacing="5">
+	<table id="franja">
 		<tr>
+			<td class="celda" id="icono"><img id="ichome" src="{% static 'img/home1.png' %}" alt='no funca'></td>
 			<td class="celda" id="titulo">Titulo/Categoria</td>
 			<td class="celda" id="buscar">Buscar</td>
-			<td class="celda" id="boton_buscar">ic bus</td>
-			<td class="celda" id="iniciar">Iniciar Sesion</td>
+			<td class="celda" id="boton_buscar">icono</td>
+			<td class="celda" id="iniciar">Iniciar Sesion |</td>
 			<td class="celda" id="registrar">Registrarse</td>
 		</tr>
 	</table>
- <div style="text-align: center; margin-top: 100px; margin-bottom: 50px; font-family: Cursive, sans-serif;"><h5> ENCABEZADO </h5></div>
- 	<h5>ola ke ase</h5>
+ 
+ 	<p style="text-align: center;"><img id="portada" src="{% static 'img/portada.png' %}" alt='no funca'></p>
+
+    <table id="botonesp">
+    	<tr>
+    		<td class="celda" id="inicio">Pagina Principal</td>
+    		<td class="celda" id="usuarios">Usuarios</td>
+    	</tr>
+    </table>
 
     {% block content %}
     ESTAS EN HOME
@@ -27,6 +35,8 @@
 
 
 
+
    <div style="text-align: center; margin: 100px; font-family: Courier New, sans-serif;"><h5> PIE DE PAGINA </h5></div>
+   <script src="{% static 'js/jqueryjs' %}"></script>
 </body>
 </html>
