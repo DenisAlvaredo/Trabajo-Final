@@ -43,10 +43,17 @@ body {
 	width: 80px;
 }
 
+#buscador {
+	border-radius: 15px;
+	border: 1px;
+	height: 20px;
+}
+
 #boton_buscar {
 	padding: 0px;
 	width: 30px;
 	height: 30px;
+	text-decoration: none;
 }
 
 
