@@ -38,19 +38,21 @@ body {
 }
 
 #buscar {
-	text-align: left;
+	text-align: right;
 	padding-left: 5px;
 	width: 80px;
 }
 
 #boton_buscar {
-	padding: 0;
+	padding: 0px;
 	width: 30px;
+	height: 30px;
 }
+
 
 #iniciar {
 	text-align: right;
-	width: 160px;
+	width: 90px;
 }
 
 #registrar {
@@ -75,8 +77,14 @@ body {
 	text-align: center;
 }
 #inicio {
-	width: 120px;
+	width: 140px;
+}
+#ini {
+	margin-left: 25px;
+	text-decoration: none;
+	color: white;
 }
 #usuarios {
-	width: 120px;
+	width: 160px;
 }
+

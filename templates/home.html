@@ -5,15 +5,21 @@
 	<title>Nombre de la Pagina</title>
 	{% load static %}
 	<link rel="stylesheet" href="{% static 'css/estilos.css' %}"/>
+	<script src="{% static 'js/jquery.js' %}"></script>
+	<script src="{% static 'js/home.js' %}"></script>
 </head>
 <body>
 	<table id="franja">
 		<tr>
 			<td class="celda" id="icono"><img id="ichome" src="{% static 'img/home1.png' %}" alt='no funca'></td>
 			<td class="celda" id="titulo">Titulo/Categoria</td>
-			<td class="celda" id="buscar">Buscar</td>
-			<td class="celda" id="boton_buscar">icono</td>
-			<td class="celda" id="iniciar">Iniciar Sesion |</td>
+			<td class="celda" id="buscar">
+				<form action="../../form-result.php" method="post" target="_blank">
+					<input type="search" name="buscar" placeholder="Buscar...">
+				</form>
+			</td>
+			<td class="celda" id="boton_buscar"><input id="boton" type="submit" value="Ir"></td>
+			<td class="celda" id="iniciar">Inicar Sesion |</td>
 			<td class="celda" id="registrar">Registrarse</td>
 		</tr>
 	</table>
@@ -22,7 +28,7 @@
 
     <table id="botonesp">
     	<tr>
-    		<td class="celda" id="inicio">Pagina Principal</td>
+    		<td class="celda" id="inicio"><a href="{% url 'home' %}" id="ini">Pagina Principal</a></td>
     		<td class="celda" id="usuarios">Usuarios</td>
     	</tr>
     </table>
@@ -37,6 +43,5 @@
 
 
    <div style="text-align: center; margin: 100px; font-family: Courier New, sans-serif;"><h5> PIE DE PAGINA </h5></div>
-   <script src="{% static 'js/jqueryjs' %}"></script>
 </body>
 </html>
