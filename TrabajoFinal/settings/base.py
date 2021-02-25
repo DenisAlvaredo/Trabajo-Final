@@ -73,19 +73,6 @@ WSGI_APPLICATION = 'TrabajoFinal.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'sql_server.pyodbc',
-#        'NAME':'TrabajoFinal',
-#        'Trusted_Connection':'yes',
-#        'HOST': 'localhost\SQLEXPRESS',
-#        'OPTIONS':{
-#            'driver':'SQL Server Native Client 11.0',
-#        }
-#    },
-#} 
-
-
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
