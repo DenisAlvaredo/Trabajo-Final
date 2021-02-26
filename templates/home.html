@@ -8,7 +8,7 @@
 	<script src="{% static 'js/jquery.js' %}"></script>
 	<script src="{% static 'js/home.js' %}"></script>
 </head>
-<body>
+<body background= "{% static 'img/fondo.jpg' %}">
 	<table id="franja">
 		<tr>
 			<td class="celda" id="icono"><img id="ichome" src="{% static 'img/home1.png' %}" alt='no funca'></td>
@@ -34,7 +34,7 @@
     </table>
 
     {% block content %}
-    ESTAS EN HOME
+    
 
     <a href="{% url 'segunda' %}">Siguientee</a>
     {% endblock %}

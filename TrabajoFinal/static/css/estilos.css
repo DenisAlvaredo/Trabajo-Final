@@ -1,6 +1,12 @@
 body {
-	background: pink;
-}
+	 background-repeat: no-repeat;
+	 background-attachment: fixed;
+	 background-position: center;
+	 -webkit-background-size: cover;
+	 -moz-background-size: cover;
+	 -o-background-size: cover;
+	 background-size: cover;
+	}
 
 #franja {
 	background: blue;
@@ -70,7 +76,7 @@ body {
 
 
 #portada {
-	width: 1000px;
+	width: 750px;
 }
 
 
