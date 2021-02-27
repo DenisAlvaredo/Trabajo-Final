@@ -6,3 +6,6 @@ def Inicio(request):
 
 def pagina2(request):
 	return render(request, 'pagina2.html')
+
+def login(request):
+	return render(request, 'login.html')

@@ -9,7 +9,7 @@ body {
 	}
 
 #franja {
-	background: blue;
+	background: #0F2955;
 	margin: auto;
 	margin-top: -10px;
 	width: 1000px;
@@ -81,7 +81,7 @@ body {
 
 
 #botonesp {
-	background: blue;
+	background: #0F2955;
 	margin-left: 165px;
 	width: 300px;
 	height: 50px;
@@ -94,7 +94,7 @@ body {
 	transition: background-color .5s;
 }
 	#inicio:hover {
-		background-color: #3182FF;
+		background-color: #0A3963;
 		border-radius: 10px;
 		border-spacing: 0px;
 		text-align: center;
@@ -110,7 +110,7 @@ body {
 	transition: background-color .5s;
 }
 	#usuarios:hover {
-		background-color: #3182FF;
+		background-color: #0A3963;
 		border-radius: 10px;
 		border-spacing: 0px;
 		text-align: center;
