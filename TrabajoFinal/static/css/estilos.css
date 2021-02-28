@@ -67,6 +67,10 @@ body {
 	text-align: right;
 	width: 90px;
 }
+#linkIniciar {
+	text-decoration: none;
+	color: white;
+}
 
 #registrar {
 	text-align: left;

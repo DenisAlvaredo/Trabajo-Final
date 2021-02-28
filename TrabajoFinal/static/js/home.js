@@ -3,4 +3,7 @@ $(document).ready(function() {
 	$( "#bot" ).click(function() {
 		$( ".slide" ).slideToggle( "slow" );
 	});
+
+
+
 });

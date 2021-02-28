@@ -1,16 +1,28 @@
 #fondo {
 	text-align: center;
 	background-color: white;
-	opacity: 0.8;
+	opacity: 0.7;
 	width: 500px;
 	height: 300px;
 	margin: auto;
 	margin-top: 80px;
 	border-radius: 15px;
+	padding-top: 30px;
+	transition: background-color .5s;
+	transition: opacity .5s;
 }
+	#fondo:hover {
+		background-color: white;
+		width: 500px;
+		height: 300px;
+		margin: auto;
+		margin-top: 80px;
+		border-radius: 15px;
+		padding-top: 30px;
+		opacity: 1;
+	}
 
 #contenido {
-	padding-top: 40px;
 }
 
 #iniciarTitulo {
