@@ -1,12 +1,18 @@
-{% extends 'home.html' %}
+{% extends 'registrarse.html' %}
 
 {% block content %}
+<div id="fondo">
+	<div id="contenido">
+		<h2 id="iniciarTitulo">Iniciar sesión</h2>
 
+		<form method="POST">
+		    {{ form.as_p }}
+		    {% csrf_token %}
+		    <button id="botonIniciar" type="submit">Iniciar Sesión</button>
+		</form>
 
-
-
-<a href="{% url 'home' %}">Volver?</a>
-
-
-
+		<hr />
+		<a href="/register">Registrar usuario</a>
+	</div>
+</div>
 {% endblock %}
