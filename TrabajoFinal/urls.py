@@ -17,13 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 from django.conf.urls.static import static
-#from usuarios import views
+#from users import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.Inicio, name = 'home'),
     path('segunda/', views.pagina2, name = 'segunda'),
-    path('registrarse/', views.registrarse, name = 'registrarse'),
+    path('register/', views.register, name = 'register'),
     path('login/', views.login, name = 'login'),
-    path('salir/', views.salir, name = 'salir'),
+    path('logout/', views.logout, name = 'logout'),
 ]

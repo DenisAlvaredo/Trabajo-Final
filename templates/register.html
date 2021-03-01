@@ -12,7 +12,7 @@
 	<table id="franja">
 		<tr>
 			<td class="celda" id="icono"><img id="ichome" src="{% static 'img/home1.png' %}" alt='no funca'></td>
-			<td class="celda" id="titulo">Titulo/Categoria</td>
+			<td class="celda" id="titulo">Volver</td>
 			<td class="celda" id="buscar">
 				<form action="../../form-result.php" method="post" target="_blank">
 					<input id="buscador" type="search" name="buscar" placeholder="Buscar...">
@@ -26,7 +26,20 @@
 
 	{% block content %}
 
-	<a href="{% url 'home' %}">Volver?</a>
+	<div id="fondo">
+		<div id="contenido">
+			<h2 id="iniciarTitulo">Registrar Usuario</h2>
+
+			<form method="POST">
+			    {{ form.as_p }}
+			    {% csrf_token %}
+			    <button id="botonIniciar" type="submit">Registrar</button>
+			</form>
+
+			<br>
+			<a href="/login">Iniciar Sesión</a>
+		</div>
+	</div>
 
 	{% endblock %}
 

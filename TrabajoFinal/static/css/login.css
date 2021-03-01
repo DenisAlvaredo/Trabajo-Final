@@ -7,7 +7,7 @@
 	margin: auto;
 	margin-top: 80px;
 	border-radius: 15px;
-	padding-top: 30px;
+	padding-top: 50px;
 	transition: background-color .5s;
 	transition: opacity .5s;
 }
@@ -18,7 +18,7 @@
 		margin: auto;
 		margin-top: 80px;
 		border-radius: 15px;
-		padding-top: 30px;
+		padding-top: 50px;
 		opacity: 1;
 	}
 
@@ -30,7 +30,7 @@
 }
 
 #id_username {
-
+	margin-top: 30px;
 }
 
 #id_password {
@@ -39,8 +39,15 @@
 
 #botonIniciar {
 	text-decoration: none;
-	opacity: none;
+	width: 150px;
+	height: 40px;
+	border: none;
+	border-radius: 10px;
+	background: #CACACA;
+	transition: background-color .5s;
+
 }
 	#botonIniciar:hover {
-
+		background-color: #0F2955;
+		color: white;
 	}
