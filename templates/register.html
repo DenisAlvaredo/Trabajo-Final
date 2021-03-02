@@ -9,20 +9,35 @@
 	<script src="{% static 'js/home.js' %}"></script>
 </head>
 <body background= "{% static 'img/fondo-login.jpg' %}">
-	<table id="franja">
-		<tr>
-			<td class="celda" id="icono"><img id="ichome" src="{% static 'img/home1.png' %}" alt='no funca'></td>
-			<td class="celda" id="titulo">Volver</td>
-			<td class="celda" id="buscar">
-				<form action="../../form-result.php" method="post" target="_blank">
-					<input id="buscador" type="search" name="buscar" placeholder="Buscar...">
-				</form>
-			</td>
-			<td class="celda" id="boton_buscar"><input id="boton" type="submit" value="Ir"></td>
-			<td class="celda" id="iniciar">Inicar Sesion |</td>
-			<td class="celda" id="registrar">Registrarse</td>
-		</tr>
-	</table>
+	<div id="franja2">
+		<table style="width: 100%;">
+			<tr>
+				<td id="icono"><img id="ichome" src="{% static 'img/home1.png' %}" alt='no funca'></td>
+				<td class="celda" id="titulo">Titulo/Categoria</td>
+				<td class="celda" id="buscar">
+					<form action="../../form-result.php" method="post" target="_blank">
+						<input id="buscador" type="search" name="buscar" placeholder="Buscar...">
+					</form>
+				</td>
+				<td class="celda" id="boton_buscar"><input id="boton" type="submit" value="Ir"></td>
+				<td class="celda" id="iniciar">
+					{% if user.is_authenticated %}
+	        			<p id="user">{{ user.username }} | </p>
+	        		{% else %}
+	    		    	<a href="{% url 'login' %}" id="linkIniciar">Inicar Sesión</a>
+	  				{% endif %}
+				</td>
+				<td id="espacio">|</td>
+				<td id="registrar">
+					{% if user.is_authenticated %}
+	        			<a href="{% url 'logout' %}" id="salir">Salir</a>
+	        		{% else %}
+	    		    	<a href="{% url 'register' %}" id="linkRegister">Registrarse</a>
+	  				{% endif %}
+				</td>
+			</tr>
+		</table>
+	</div>
 
 	{% block content %}
 

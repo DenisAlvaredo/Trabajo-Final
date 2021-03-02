@@ -8,31 +8,44 @@ body {
 	 background-size: cover;
 	}
 
-#franja {
+#franja2 {
+	width: 1000px;
+	height: 50px;
 	background: #0F2955;
 	margin: auto;
 	margin-top: -10px;
-	width: 1000px;
-	height: 50px;
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px;
 	border-spacing: 0px;
+	padding: 10px 10px 0px 10px;
+}
+
+#tabla {
+	width: 100%;
 }
 
 .celda {
 	background: none;
-	padding: 0px;
+	padding: 0px 5px;
 	border: 0px 0px 0px 0px;
 	color: white;
 }
 
 #icono {
-	padding-left: 10px;
+	width: 30px;
+	height: 30px;
+	background: none;
+	padding: 0px 5px 0px 0px;
+	border: 0px 0px 0px 0px;
+	color: white;
+}
+
+#ichome {
 	width: 30px;
 	height: 30px;
 }
 
-#ichome {
+#ichome2 {
 	width: 30px;
 	height: 30px;
 }
@@ -71,31 +84,53 @@ body {
 	text-decoration: none;
 	color: white;
 }
-
+#user {
+	text-decoration: none;
+	text-align: right;
+	color: white;
+}
+#espacio {
+	width: 1px;
+	color: white;
+}
 #registrar {
 	text-align: left;
 	width: 30px;
-	padding-left: 2px;
+	background: none;
+	padding: 0px 0px 0px 5px;
+	border: 0px 0px 0px 0px;
+	color: white;
+}
+#linkRegister {
+	text-decoration: none;
+	color: white;
 }
 
 
 #portada {
 	width: 750px;
+	padding: 10px;
 }
 
 
 #botonesp {
-	background: #0F2955;
-	margin-left: 165px;
-	width: 300px;
+	width: 1000px;
 	height: 50px;
-	border-radius: 10px;
-	border-spacing: 0px;
+	margin: auto;
 	text-align: center;
+}
+#tablaBotonesp {
+	width: 1000px;
+	height: 50px;
+	border-spacing: 0px;
 }
 #inicio {
 	width: 180px;
 	transition: background-color .5s;
+	background: #0F2955;
+	border-radius: 10px;
+	border-spacing: 0px;
+	text-align: center;
 }
 	#inicio:hover {
 		background-color: #0A3963;
@@ -104,19 +139,28 @@ body {
 		text-align: center;
 	}
 
-#ini {
+.botones {
 	text-decoration: none;
 	color: white;
 }
 
-#usuarios {
-	width: 120px;
+#newpost {
+	width: 180px;
 	transition: background-color .5s;
+	background: #0F2955;
+	border-radius: 10px;
+	border-spacing: 0px;
+	text-align: center;
 }
-	#usuarios:hover {
+	#newpost:hover {
 		background-color: #0A3963;
 		border-radius: 10px;
 		border-spacing: 0px;
 		text-align: center;
 	}
 
+#salir {
+	text-decoration: none;
+	text-align: left;
+	color: white;
+}

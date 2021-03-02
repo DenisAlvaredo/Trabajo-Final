@@ -9,29 +9,55 @@
 	<script src="{% static 'js/home.js' %}"></script>
 </head>
 <body background= "{% static 'img/fondo.jpg' %}">
-	<table id="franja">
-		<tr>
-			<td class="celda" id="icono"><img id="ichome" src="{% static 'img/home1.png' %}" alt='no funca'></td>
-			<td class="celda" id="titulo">Titulo/Categoria</td>
-			<td class="celda" id="buscar">
-				<form action="../../form-result.php" method="post" target="_blank">
-					<input id="buscador" type="search" name="buscar" placeholder="Buscar...">
-				</form>
-			</td>
-			<td class="celda" id="boton_buscar"><input id="boton" type="submit" value="Ir"></td>
-			<td class="celda" id="iniciar"><a href="{% url 'login' %}" id="linkIniciar">Inicar Sesion |</td>
-			<td class="celda" id="registrar">Registrarse</td>
-		</tr>
-	</table>
- 
- 	<p style="text-align: center;"><img id="portada" src="{% static 'img/portada.png' %}" alt='no funca'></p>
+	<div id="franja2">
+		<table style="width: 100%;">
+			<tr>
+				<td id="icono"><img id="ichome" src="{% static 'img/home1.png' %}" alt='no funca'></td>
+				<td class="celda" id="titulo">Titulo/Categoria</td>
+				<td class="celda" id="buscar">
+					<form action="../../form-result.php" method="post" target="_blank">
+						<input id="buscador" type="search" name="buscar" placeholder="Buscar...">
+					</form>
+				</td>
+				<td class="celda" id="boton_buscar"><input id="boton" type="submit" value="Ir"></td>
+				<td class="celda" id="iniciar">
+					{% if user.is_authenticated %}
+	        			{{ user.username }}
+	        		{% else %}
+	    		    	<a href="{% url 'login' %}" id="linkIniciar">Inicar Sesión</a>
+	  				{% endif %}
+				</td>
+				<td id="espacio">|</td>
+				<td id="registrar">
+					{% if user.is_authenticated %}
+	        			<a href="{% url 'logout' %}" id="salir">Salir</a>
+	        		{% else %}
+	    		    	<a href="{% url 'register' %}" id="linkRegister">Registrarse</a>
+	  				{% endif %}
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+ 	<div style="text-align: center;"><img id="portada" src="{% static 'img/portada.png' %}" alt='no funca'></div>
 
-    <table id="botonesp">
-    	<tr>
-    		<td class="celda" id="inicio"><a href="{% url 'home' %}" id="ini">Pagina Principal</a></td>
-    		<td class="celda" id="usuarios">Usuarios</td>
-    	</tr>
-    </table>
+	<div id="botonesp">
+	    <table id="tablaBotonesp">
+	    	<tr>
+	    		<td class="celda" id="inicio"><a href="{% url 'home' %}" class="botones">Pagina Principal</a></td>
+	    		<td class="celda" id="newpost">
+	    			{% if user.is_authenticated %}
+	        			<a href="{% url 'home' %}" class="botones">Crear Post</a>
+	        		{% else %}
+	    		    	<a href="{% url 'login' %}" class="botones">Crear Post</a>
+	  				{% endif %}
+	    		</td>
+	    		<td></td>
+	    		<td></td>
+	    		<td></td>
+	    	</tr>
+	    </table>
+	</div>
 
     {% block content %}
     
