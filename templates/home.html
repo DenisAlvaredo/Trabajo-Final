@@ -47,7 +47,7 @@
 	    		<td class="celda" id="inicio"><a href="{% url 'home' %}" class="botones">Pagina Principal</a></td>
 	    		<td class="celda" id="newpost">
 	    			{% if user.is_authenticated %}
-	        			<a href="{% url 'home' %}" class="botones">Crear Post</a>
+	        			<a href="{% url 'posts:post_new' %}" class="botones">Crear Post</a>
 	        		{% else %}
 	    		    	<a href="{% url 'login' %}" class="botones">Crear Post</a>
 	  				{% endif %}
@@ -62,12 +62,16 @@
     {% block content %}
     
 
-    <a href="{% url 'segunda' %}">Siguientee</a>
+	{% for post in posts %}
+    	<div>
+        	<h2><a href="{% url 'posts:post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+        	<p>{{ post.text|linebreaksbr }}</p>
+        	<p> publicado: {{ post.published_date }}</p>
+    	</div>
+	{% endfor %}
+
     {% endblock %}
 
 
-
-
-   <div style="text-align: center; margin: 100px; font-family: Courier New, sans-serif;"><h5> PIE DE PAGINA </h5></div> 
 </body>
 </html>

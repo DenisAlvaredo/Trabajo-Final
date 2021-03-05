@@ -5,10 +5,13 @@ from django.contrib.auth import logout as do_logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as do_login
+from apps.posts.models import Post
+from django.utils import timezone
 
 
 def Inicio(request):
-	return render(request, 'home.html')
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'home.html', {'posts': posts})
 
 def pagina2(request):
 	return render(request, 'pagina2.html')
