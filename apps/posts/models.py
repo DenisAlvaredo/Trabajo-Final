@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from apps.users.models import User
 from ckeditor.fields import RichTextField
 
@@ -21,7 +22,7 @@ class Post(models.Model):
     #miniatura = models.URLField('URL de la imagén', max_length = 255, null = False, blank = False)
     miniatura = models.ImageField()
     slug = models.CharField('Slug', max_length = 100, blank = False, null = False)
-    fecha_publicacion = models.DateTimeField('Fecha de publicación', auto_now_add = True) 
+    fecha_publicacion = models.DateTimeField('Fecha de publicación', default = timezone.now) 
     ultima_actualizacion = models.DateTimeField('Última actualización', auto_now = True)
 
     class Meta:

@@ -67,15 +67,20 @@
 
     {% block content %}
     
-
-	{% for post in posts %}
-    	<div>
-        	<h2><a href="{% url 'posts:post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-        	<p>{{ post.text|linebreaksbr }}</p>
-        	<p> publicado: {{ post.published_date }}</p>
-    	</div>
-	{% endfor %}
-
+	<!-- CONTENIDO DE LOS POSTS -->
+	<div class="container">
+		<div class="row"> 
+			{% for post in posts %}
+			<div>
+				<h2><a href="{% url 'posts:post_detail' pk=post.pk %}">{{ post.titulo }}</a></h2>
+				<img src="{{post.miniatura.url}}">
+				<p>{{ post.contenido|linebreaksbr }}</p>
+				<p> publicado: {{ post.fecha_publicacion }}</p>
+			</div>
+			{% endfor %}
+		</div>  
+	</div>
+  <!-- FINALIZA CONTENIDO DE LOS POSTS -->
     {% endblock %}
 
 

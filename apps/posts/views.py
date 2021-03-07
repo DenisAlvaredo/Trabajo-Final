@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView, ListView
 from .models import Post, Categoria
@@ -20,6 +20,10 @@ class PostListView(ListView):
     queryset = Post.objects.all().order_by('fecha_creacion')
     model = Post # Modelo creado en models.py el cual se creo con los campos a usar en la creacion del post
     template_name = 'posts/post_list'
+
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'posts/post_detail.html', {'post': post})
 
 #####################CATEGORIAS DE LOS POSTS##############################
 
