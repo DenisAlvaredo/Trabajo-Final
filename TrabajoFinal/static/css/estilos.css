@@ -159,6 +159,22 @@ body {
 		text-align: center;
 	}
 
+#misposts {
+	width: 180px;
+	transition: background-color .5s;
+	background: #0F2955;
+	border-radius: 10px;
+	border-spacing: 0px;
+	text-align: center;
+}
+	#misposts:hover {
+		background-color: #0A3963;
+		border-radius: 10px;
+		border-spacing: 0px;
+		text-align: center;
+	}
+
+
 #salir {
 	text-decoration: none;
 	text-align: left;

@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from django.urls import reverse_lazy
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,19 +29,30 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'users.User' 
+
+LOGIN_REDIRECT_URL = reverse_lazy('home')
+LOGOUT_REDIRECT_URL = reverse_lazy('login')
+LOGIN_URL = reverse_lazy('login')
+REGISTER_REDIRECT_URL = ('home')
 
 
 # Application definition
 
 INSTALLED_APPS = [
+#Django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+#Apps
     'apps.users',
     'apps.posts',
+#Herramientas
+    'crispy_forms',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +70,8 @@ ROOT_URLCONF = 'TrabajoFinal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(os.path.dirname(BASE_DIR),'templates')],
+        #'DIRS': [os.path.join(os.path.dirname(BASE_DIR),'templates')], asi estaba en Trabajo-Final
+        'DIRS': ['templates/'], #Asi estaba en el de gabriel
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,6 +89,13 @@ WSGI_APPLICATION = 'TrabajoFinal.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
+DATABASES = { #Esto se agrego porque asi estaba en el de gabriel
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -114,13 +135,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'media'),
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
-#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 SOCIAL_AUTH_URL_NAMESPACE = 'posts'

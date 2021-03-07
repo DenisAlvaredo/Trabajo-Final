@@ -1,11 +1,18 @@
 from django.urls import path
 from . import views
-from .views import *
+from . views import *
 
-app_name= "posts"
+app_name = 'posts'
 
 urlpatterns = [
-    path('new/', views.post_new, name='post_new'),
-    path('<int:pk>/', views.post_detail, name='post_detail'),
-    path('<int:pk>/edit/', views.post_edit, name='post_edit'),
+	path('list/', PostListView.as_view(), name = 'posts_list'),
+    path('subir_post/', PostCreateView.as_view(), name = 'create_post'), # Aqui create_post le dice a django que levante PostCreateView como una vista
+    path('cultura/', Cultura.as_view(), name = 'cultura'),
+    path('tecnologia/', Tecnologia.as_view(), name = 'tecnologia'),
+    path('gaming/', Gaming.as_view(), name = 'gaming'),
+    path('peliculas/', Peliculas.as_view(), name = 'peliculas'),
+    path('series/', Series.as_view(), name = 'series'),
+    path('anime/', Anime.as_view(), name = 'anime'),
+    path('misposts/', MisPosts.as_view(), name = 'misposts'),
+
 ]

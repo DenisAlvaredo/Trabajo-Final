@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login</title>
+	<title>{% block title %}Registrar Usuario{% endblock %}</title>
 	{% load static %}
 	<link rel="stylesheet" href="{% static 'css/estilos.css' %}"/>
 	<link rel="stylesheet" href="{% static 'css/login.css' %}"/>
@@ -12,7 +12,7 @@
 	<div id="franja2">
 		<table style="width: 100%;">
 			<tr>
-				<td id="icono"><img id="ichome" src="{% static 'img/home1.png' %}" alt='no funca'></td>
+				<td id="icono"><a href="{% url 'home' %}"><img id="ichome" src="{% static 'img/home1.png' %}" alt='no funca'></a></td>
 				<td class="celda" id="titulo">Titulo/Categoria</td>
 				<td class="celda" id="buscar">
 					<form action="../../form-result.php" method="post" target="_blank">

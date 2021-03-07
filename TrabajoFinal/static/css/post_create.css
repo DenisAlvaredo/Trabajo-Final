@@ -1,0 +1,55 @@
+#editor {
+	width: 1000px;
+	height: 50px;
+	margin: auto;
+}
+
+#div_id_titulo {
+}
+
+.controls {
+	/*background: yellow;*/
+}
+
+.control-group { /* esta clase maneja los titulos de los campos*/
+	color: white;
+	font-size: 20px;
+	padding-top: 10px;
+	/*text-shadow: 2px 2px 2px black;*/
+	text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+.textinput {
+	text-decoration: none;
+	border: none;
+	border-radius: 8px;
+	font-size: 20px;
+	height: 30px;
+	width: 500px;
+	margin-top: 5px;
+	padding: 5px;
+	font-family: arial;
+}
+
+.select {
+	text-decoration: none;
+	height: 30px;
+	padding: 5px;
+	border: none;
+	border-radius: 8px;
+	font-size: 15px;
+	margin-top: 5px;
+	padding: 5px;
+	width: 200px;
+}
+
+.textarea {
+	text-decoration: none;
+	border: none;
+	border-radius: 5px;
+	width: 100%;
+	height: 400px;
+	margin-top: 5px;
+	padding: 5px;
+}
+

@@ -1,39 +1,47 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.utils import timezone
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, TemplateView, ListView
+from .models import Post, Categoria
 from .forms import PostForm
-from .models import Post
 
-def post_new(request):
-    if request.method == "POST":
-        form = PostForm(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.published_date = timezone.now()
-            post.save()
-            return redirect('posts:post_detail', pk=post.pk)
-    else:
-        form = PostForm()
-    return render(request, 'post_edit.html', {'form': form})
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-def post_list(request):
-	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-	return render(request, 'home.html', {'posts': posts})
+#####################CREACION DE LOS POSTS###############################
 
-def post_detail(request, pk):
-	post = get_object_or_404(Post, pk=pk)
-	return render(request, 'post_detail.html', {'post': post})
+class PostCreateView(LoginRequiredMixin, CreateView): #entra heredando el createView y carga el formulario de forms.py y lo manda a post_Create.html
+    model = Post
+    form_class = PostForm
+    template_name = 'posts/post_create.html'
+    success_url = reverse_lazy('home')
 
-def post_edit(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.published_date = timezone.now()
-            post.save()
-            return redirect('posts:post_detail', pk=post.pk)
-    else:
-        form = PostForm(instance=post)
-    return render(request, 'post_edit.html', {'form': form})
+############################LISTAR POSTS##################################
+
+class PostListView(ListView):
+    queryset = Post.objects.all().order_by('fecha_creacion')
+    model = Post # Modelo creado en models.py el cual se creo con los campos a usar en la creacion del post
+    template_name = 'posts/post_list'
+
+#####################CATEGORIAS DE LOS POSTS##############################
+
+class Cultura(TemplateView): #no olvidarse importar TemplateView
+    template_name = 'posts/cultura.html'
+
+class Tecnologia(TemplateView):
+    template_name = 'posts/tecnologia.html'
+
+class Gaming(TemplateView):
+    template_name = 'posts/gaming.html'
+
+class Peliculas(TemplateView):
+    template_name = 'posts/peliculas.html'
+
+class Series(TemplateView):
+    template_name = 'posts/series.html'
+
+class Anime(TemplateView):
+    template_name = 'posts/anime.html'
+
+class MisPosts(TemplateView):
+    template_name = 'posts/misposts.html'
+
+#####################AQUI TERMINA CATEGORIAS DE LOS POSTS####################

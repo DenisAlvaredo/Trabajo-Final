@@ -15,16 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from . import views
 from django.conf.urls.static import static
-#from users import views
+from django.contrib.auth import views as auth
+from . import views
+from . views import *
+from apps.users.views import RegistrarUsuario
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.Inicio, name = 'home'),
-    path('segunda/', views.pagina2, name = 'segunda'),
-    path('register/', views.register, name = 'register'),
-    path('login/', views.login, name = 'login'),
-    path('logout/', views.logout, name = 'logout'),
-    path('posts/', include('apps.posts.urls', 'posts'))
+    path('', Home.as_view(), name = 'home'),
+    path('posts/', include('apps.posts.urls', 'posts')),
+
+    path('Login/', auth.LoginView.as_view(template_name = 'users/login.html'), name = 'login'),
+    path('Logout/', auth.LogoutView.as_view(), name = 'logout'),
+    path('Register/', RegistrarUsuario.as_view(), name = 'register'),
+
+
+    #path('', include('apps.posts.urls', 'post')), #aqui se le avisa que la app post tiene su propia url y , 'post' sera el nombre que represente a todas las urls dentro de la aplicacion posts#
+
 ]
