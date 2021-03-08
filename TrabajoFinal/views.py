@@ -8,5 +8,5 @@ from apps.posts.models import Post
 #    template_name = 'home.html'
 
 def Home(request):
-	posts = Post.objects.filter(fecha_publicacion__lte=timezone.now()).order_by('fecha_publicacion')
+	posts = Post.objects.filter(fecha_publicacion__lte=timezone.now()).order_by('-fecha_publicacion')
 	return render(request, 'home.html', {'posts': posts})

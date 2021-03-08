@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
+from django.conf import settings
 from apps.users.models import User
 from ckeditor.fields import RichTextField
 
