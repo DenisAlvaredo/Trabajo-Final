@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
-from .models import Post, Categoria
+from .models import *
 from .forms import PostForm
 
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -18,3 +18,14 @@ class PostCreateView(LoginRequiredMixin, CreateView): #entra heredando el create
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'posts/post_detail.html', {'post': post})
+
+
+def home(request):
+	post = Post.objects.all()
+	fecha_publicacion = 0
+
+	if request.POST.get('fecha'):
+		fecha_publicacion = int(request.POST.get('fecha_publicacion'))
+		post = post.filter(fecha_publicacion__gte=fecha_publicacion)
+
+	return render(request, 'home.html', {'post': post, 'fecha_publicacion': fecha_publicacion})

@@ -31,5 +31,6 @@ urlpatterns = [
     path('Login/', auth.LoginView.as_view(template_name = 'users/login.html'), name = 'login'),
     path('Logout/', auth.LogoutView.as_view(), name = 'logout'),
     path('Register/', RegistrarUsuario.as_view(), name = 'register'),
+    #path('Edit_Profile/', EditarUsuario.as_view(), name = 'editprofile'),
     #path('', include('apps.posts.urls', 'post')), #aqui se le avisa que la app post tiene su propia url y , 'post' sera el nombre que represente a todas las urls dentro de la aplicacion posts#
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

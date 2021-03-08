@@ -4,13 +4,14 @@
 
 {% block content %}
 <div id="fondo">
-	<div id="contenido">
-		<h2 id="iniciarTitulo">Iniciar sesión</h2>
+	<h1>edit profile</h1>
+	<br/>
 
+	<div class="form-group">
 		<form method="POST">
 		    {{ form.as_p }}
 		    {% csrf_token %}
-		    <button id="botonIniciar" type="submit">Iniciar Sesión</button>
+		    <button id="botonIniciar" type="submit">update profile</button>
 		</form>
 	</div>
 </div>

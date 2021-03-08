@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from .models import User
 
+
 class RegistrarUsuarioForm(UserCreationForm):
 	class Meta:
 		model = User
@@ -10,3 +11,4 @@ class RegistrarUsuarioForm(UserCreationForm):
 		super(RegistrarUsuarioForm, self).__init__(*args, **kwargs)
 		for fieldname in ['username', 'password1', 'password2']:
 			self.fields[fieldname].help_text = None
+
