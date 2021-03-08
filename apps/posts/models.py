@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.conf import settings
 from apps.users.models import User
 from ckeditor.fields import RichTextField
 
@@ -16,12 +17,14 @@ class Categoria(models.Model):
         return self.nombre
 
 class Post(models.Model):
+    autor = models.ForeignKey('users.User', unique=True, on_delete=models.DO_NOTHING)
+    #autor = models.ForeignKey('users.User', settings.AUTH_USER_MODEL, on_delete = models.SET_DEFAULT, default=1)
     titulo = models.CharField('Título del post', max_length = 100, null = False, blank = False)
     categoria = models.ForeignKey('Categoria', on_delete = models.CASCADE)
     contenido = models.TextField('Contenido del post', max_length = 5255, null = False, blank = False)
     #miniatura = models.URLField('URL de la imagén', max_length = 255, null = False, blank = False)
     miniatura = models.ImageField()
-    slug = models.CharField('Slug', max_length = 100, blank = False, null = False)
+    slug = models.SlugField('Slug', unique=True)
     fecha_publicacion = models.DateTimeField('Fecha de publicación', default = timezone.now) 
     ultima_actualizacion = models.DateTimeField('Última actualización', auto_now = True)
 
