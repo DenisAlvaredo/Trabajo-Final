@@ -1,5 +1,7 @@
 {% extends 'home.html' %}
 
+{% block title %}{{ post.titulo }}{% endblock %}
+
 {% block content %}
     <div class="post">
         {% if post.fecha_publicacion %}
@@ -9,6 +11,7 @@
         {% endif %}
         
         <h2>{{ post.titulo }}</h2>
+        <p>{{ post.categoria }}</p>
         <img src="{{post.miniatura.url}}">
         <p>{{ post.contenido|linebreaksbr }}</p>
 

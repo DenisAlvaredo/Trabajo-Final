@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.utils import timezone
 from django.conf import settings
+from django.urls import reverse 
 from apps.users.models import User
 from ckeditor.fields import RichTextField
 
@@ -24,12 +25,12 @@ class Categoria(models.Model):
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL,  on_delete=models.SET_DEFAULT, default=1)
     titulo = models.CharField('Título del post', max_length = 100, null = False, blank = False)
-    categoria = models.ForeignKey('Categoria', on_delete = models.CASCADE)
+    categoria =models.CharField(max_length = 255, default='elegir categoria')
     contenido = models.TextField('Contenido del post', max_length = 5255, null = False, blank = False)
     #miniatura = models.URLField('URL de la imagén', max_length = 255, null = False, blank = False)
     miniatura = models.ImageField()
     slug = models.SlugField('Slug', max_length = 100, blank = False, null = False)
-    fecha_publicacion = models.DateTimeField('Fecha de publicación', default = timezone.now()) 
+    fecha_publicacion = models.DateTimeField('Fecha de publicación', default = timezone.now) 
     ultima_actualizacion = models.DateTimeField('Última actualización', auto_now = True)
 
     class Meta:

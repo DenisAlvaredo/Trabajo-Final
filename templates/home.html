@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 	<title>{% block title %}Radikal-Gamez{% endblock %}</title>
@@ -22,7 +23,7 @@
 				<td class="celda" id="boton_buscar"><input id="boton" type="submit" value="Ir"></td>
 				<td class="celda" id="iniciar">
 					{% if user.is_authenticated %}
-	        			<a href="{% url 'editprofile' %}" id="linkIniciar">{{ user.username }}</a>
+	        			<a href="" id="linkIniciar">{{ user.username }}</a>
 	        		{% else %}
 	    		    	<a href="{% url 'login' %}" id="linkIniciar">Inicar Sesión</a>
 	  				{% endif %}
@@ -65,8 +66,27 @@
 	    </table>
 	</div>
 
+<!-- categorias -->
+<div>
+	{% if cat_menu %}
+	<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+		<li class="nav-item dropdown">
+	          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorias</a>
+	          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-    {% block content %}
+	          	{% for item in cat_menu %}
+	          		<a class="dropdown-item" href="{% url 'category' item|slugify %}">{{ item }}</br></a>
+	          	{% endfor %}
+
+	          </ul>
+	    </li>
+	</ul>
+	{% endif %}
+</div>
+<!-- fin de las categorias -->
+
+
+{% block content %}
 
     <div>
     <form action="/" method="POST">
@@ -79,25 +99,24 @@
     
 	<!-- CONTENIDO DE LOS POSTS -->
 	<div id="cuerpo">
-		{% for post in posts %}
+		{% for post in object_list %}
 		<div>
-			<table>
+			<table id="post" cellspacing="0" cellpadding="0">
 				<tr>
 					<td id="celdaPost" colspan="2"><a id="tituloPost" href="{% url 'posts:post_detail' pk=post.pk %}">{{ post.titulo }}</a></td>
 					<td></td>
 					<td id="miniatura" rowspan="2"><img id="miniatura_imagen" src="{{post.miniatura.url}}"></td>
 				</tr>
-				<tr>
-					<td id="contenido" colspan="2"><p>{{ post.contenido|linebreaksbr }}</p></td>
-					<td></td>
-					<td></td>
+				<tr >
+					<td id="conten" colspan="2"><p id="cont">{{ post.contenido|slice:":950" }}...</p></td>
 				</tr>
 				<tr>
-					<td id="comentarios"></td>
-					<td id="fecha"><p> publicado: {{ post.fecha_publicacion }}</p></td>
-					<td id="autor"></td>
+					<td id="fecha"><p id="pFecha">{{ post.fecha_publicacion }}</p></td>
+					<td id="autor"><p id="pAutor">{{ post.author }}</p></td>
+					<td id="comentarios" colspan="2"><p id="pComent">{{ post.categoria }}</p></td>
 				</tr>
 			</table>
+			<br>
 		</div>
 		{% endfor %}
 	</div>

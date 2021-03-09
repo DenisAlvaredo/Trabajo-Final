@@ -20,17 +20,19 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth
 from . import views
 from . views import *
-from apps.users.views import RegistrarUsuario
+from apps.users.views import RegistrarUsuario, EditarUsuario
+from apps.posts.views import CategoryView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.Home, name = 'home'),
+    path('', HomeView.as_view(), name = 'home'),
     path('posts/', include('apps.posts.urls', 'posts')),
 
     path('Login/', auth.LoginView.as_view(template_name = 'users/login.html'), name = 'login'),
     path('Logout/', auth.LogoutView.as_view(), name = 'logout'),
     path('Register/', RegistrarUsuario.as_view(), name = 'register'),
-    #path('Edit_Profile/', EditarUsuario.as_view(), name = 'editprofile'),
+    path('Edit_Profile/', EditarUsuario.as_view(), name = 'editprofile'),
+    path('category/<str:cats>', CategoryView, name = 'category'),
     #path('', include('apps.posts.urls', 'post')), #aqui se le avisa que la app post tiene su propia url y , 'post' sera el nombre que represente a todas las urls dentro de la aplicacion posts#
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

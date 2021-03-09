@@ -14,6 +14,10 @@ class PostCreateView(LoginRequiredMixin, CreateView): #entra heredando el create
     template_name = 'posts/post_create.html'
     success_url = reverse_lazy('home')
 
+def CategoryView(request, cats):
+	category_posts = Post.objects.filter(categoria=cats.replace('-', ' '))
+	return render(request, 'posts/categorias.html', {'cats':cats.title().replace('-', ' '), 'category_posts':category_posts})
+
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
