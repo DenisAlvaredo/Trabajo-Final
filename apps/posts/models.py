@@ -29,7 +29,7 @@ class Post(models.Model):
     #miniatura = models.URLField('URL de la imagén', max_length = 255, null = False, blank = False)
     miniatura = models.ImageField()
     slug = models.SlugField('Slug', max_length = 100, blank = False, null = False)
-    fecha_publicacion = models.DateTimeField('Fecha de publicación', default = timezone.now()) 
+    fecha_publicacion = models.DateTimeField('Fecha de publicación', default = timezone.now) 
     ultima_actualizacion = models.DateTimeField('Última actualización', auto_now = True)
 
     class Meta:
