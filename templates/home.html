@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
 	<title>{% block title %}Radikal-Gamez{% endblock %}</title>
@@ -15,15 +14,11 @@
 			<tr>
 				<td id="icono"><a href="{% url 'home' %}"><img id="ichome" src="{% static 'img/home1.png' %}" alt='no funca'></a></td>
 				<td class="celda" id="titulo">Novedades</td>
-				<td class="celda" id="buscar">
-					<form action="../../form-result.php" method="post" target="_blank">
-						<input id="buscador" type="search" name="buscar" placeholder="Buscar...">
-					</form>
-				</td>
-				<td class="celda" id="boton_buscar"><input id="boton" type="submit" value="Ir"></td>
+				<td class="celda" id="buscar"></td>
+				<td class="celda" id="boton_buscar"></td>
 				<td class="celda" id="iniciar">
 					{% if user.is_authenticated %}
-	        			<a href="" id="linkIniciar">{{ user.username }}</a>
+	        			<a href="{% url 'home' %}" id="linkIniciar">{{ user.username }}</a>
 	        		{% else %}
 	    		    	<a href="{% url 'login' %}" id="linkIniciar">Inicar Sesión</a>
 	  				{% endif %}
@@ -42,61 +37,42 @@
 	
  	<div style="text-align: center;"><img id="portada" src="{% static 'img/portada.png' %}" alt='no funca'></div>
 
-	<div id="botonesp">
-	    <table id="tablaBotonesp">
-	    	<tr>
-	    		<td class="celda" id="inicio"><a href="{% url 'home' %}" class="botones">Pagina Principal</a></td>
-	    		<td class="celda" id="newpost">
-	    			{% if user.is_authenticated %}
-	        			<a href="{% url 'posts:post_create' %}" class="botones">Crear Post</a>
-	        		{% else %}
-	    		    	<a href="{% url 'login' %}" class="botones">Crear Post</a>
-	  				{% endif %}
-	    		</td>
-	    		<td class="celda" id="misposts">
-	    			{% if user.is_authenticated %}
-	        			<a href="{% url 'home' %}" class="botones">Mis Posts</a>
-	        		{% else %}
-	    		    	<a href="{% url 'login' %}" class="botones">Mis Posts</a>
-	  				{% endif %}
-	    		</td>
-	    		<td></td>
-	    		<td></td>
-	    	</tr>
-	    </table>
-	</div>
-
-<!-- categorias -->
-<div>
-	{% if cat_menu %}
-	<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-		<li class="nav-item dropdown">
-	          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorias</a>
-	          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-	          	{% for item in cat_menu %}
-	          		<a class="dropdown-item" href="{% url 'category' item|slugify %}">{{ item }}</br></a>
-	          	{% endfor %}
-
-	          </ul>
-	    </li>
-	</ul>
-	{% endif %}
-</div>
-<!-- fin de las categorias -->
-
+<!--Inicio: Botones debajo de banner-->
+<header id="headCat">
+	<nav>
+		<ul id="listCat">
+			<li><a href="{% url 'home' %}">Pagina Principal</a></li>
+			<li>
+				{% if user.is_authenticated %}
+	        		<a href="{% url 'posts:post_create' %}" class="botones">Crear Post</a>
+	        	{% else %}
+	    		    <a href="{% url 'login' %}" class="botones">Crear Post</a>
+	  			{% endif %}
+			</li>
+			<li><a href="{% url 'home' %}">Filtro Fecha</a></li>
+			{% if cat_menu %}
+			<li>
+				<a role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorías</a>
+				<ul aria-labelledby="navbarDropdown">
+					{% for item in cat_menu %}
+						<li><a href="{% url 'posts:category' item|slugify %}">{{ item }}</a></li>
+					{% endfor %}
+				</ul>
+			</li>
+			{% endif %}
+		</ul>
+	</nav>
+</header>
+<!--Fin: Botones debajo de banner-->
 
 {% block content %}
 
-    <div>
-    <form action="/" method="POST">
-       fecha: 
-        <input type="date" name="fecha_publicacion" value="{{fecha_publicacion}}" style="width:130px" / >
-        <input type="submit" value="Filtrar">
-        {% csrf_token %}
-    </form>
-    </div>
+
     
+<!--prueba del filtro fecha-->
+
+
+
 	<!-- CONTENIDO DE LOS POSTS -->
 	<div id="cuerpo">
 		{% for post in object_list %}
@@ -108,22 +84,23 @@
 					<td id="miniatura" rowspan="2"><img id="miniatura_imagen" src="{{post.miniatura.url}}"></td>
 				</tr>
 				<tr >
-					<td id="conten" colspan="2"><p id="cont">{{ post.contenido|slice:":950" }}...</p></td>
+					<td id="conten" colspan="2"><p id="cont">{{ post.contenido|slice:":800"|safe }}...</p></td>
+					<td></td>
+					<td></td>
 				</tr>
 				<tr>
 					<td id="fecha"><p id="pFecha">{{ post.fecha_publicacion }}</p></td>
-					<td id="autor"><p id="pAutor">{{ post.author }}</p></td>
+					<td id="autor"><p id="pAutor">{{ post.author}}</p></td>
 					<td id="comentarios" colspan="2"><p id="pComent">{{ post.categoria }}</p></td>
 				</tr>
 			</table>
-			<br>
+			<br style="height: 100px;"></br>
 		</div>
 		{% endfor %}
 	</div>
 
   <!-- FINALIZA CONTENIDO DE LOS POSTS -->
-    {% endblock %}
-
+{% endblock %}
 
 </body>
 </html>

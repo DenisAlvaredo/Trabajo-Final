@@ -113,7 +113,7 @@ body {
 	padding: 10px;
 }
 
-
+/*Inicio: Botones debajo de banner*/
 #botonesp {
 	width: 1000px;
 	height: 50px;
@@ -175,7 +175,58 @@ body {
 		border-spacing: 0px;
 		text-align: center;
 	}
+/*Fin Botones dejabo de Banner*/
 
+/*Inicio NavBar debajo de Banner*/
+#headCat {
+	width: 1000px;
+	height: 50px;
+	margin: auto;
+	text-align: center;
+}
+
+ul{
+	list-style: none;
+	padding: 0px;
+	margin: auto;
+}
+#listCat li>a{
+	transition: background-color .6s;
+	background: #0F2955;
+	color: white;
+	padding: 0px;
+	display: block;
+	text-decoration: none;
+	margin: auto; 
+	min-width: 100px;
+	border-radius: 10px;
+	height: 50px;
+	line-height: 50px;
+
+}
+	#listCat li>a:hover{
+		background-color: #0A3963;
+		color: white;
+	}
+#listCat>li{
+	float: left;
+	text-align:center
+	padding: 0px;
+	width: 200px;
+
+}
+#listCat>li>ul{
+	position: absolute;
+    width: 0;
+    overflow: hidden;
+}
+	#listCat>li:hover>ul {
+		width: 200px;
+		z-index: 0;
+		background: none;
+	}
+
+/*Fin: NavBar debajo de Banner*/
 
 #salir {
 	text-decoration: none;
@@ -227,20 +278,29 @@ body {
 	background: black;
 }
 #miniatura_imagen{
-	height: 100%;
-	padding: 0px;
+  width: 100%;
+  height: auto;
+  border-top-right-radius: 12px;
 }
+@supports(object-fit: cover){
+    #miniatura_imagen{
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+}
+
 #conten {
 	margin-top: auto;
 	border-bottom: 5px solid #000;
 	border-right: 5px solid #000;
-	padding-bottom: 0px;
+	padding: 0px 10px 0px 10px;
 	background: white;
 }
 #cont {
 	margin-top: auto;
 	font-size: 18px;
-	padding: 5px 10px 0px 10px;
+	padding-top: 5px;
 }
 #comentarios {
 	padding: 0px;
@@ -264,3 +324,63 @@ body {
 	text-align: right;
 	padding: 0px 10px 0px 10px;
 }
+
+/*INICIO:para cuando no haya categorias*/
+
+#sincatDiv {
+	width: 500px;
+	height: 30px;
+	text-align: center;
+	background: white;
+	margin: auto;
+	border-radius: 6px;
+}
+#sincatP {
+	font-size: 20px;
+}
+#sincatLink {
+	font-size: 20px;
+}
+
+/*FIN: para cuando no haya categorías*/
+
+/*html para dejar el comentario*/
+/*div del cuerpo del formulario*/
+#cuerpoComent {
+	text-align: center;
+	background-color: white;
+	opacity: 0.7;
+	width: 500px;
+	height: 100%;
+	margin: auto;
+	border-radius: 15px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	transition: background-color .5s;
+	transition: opacity .5s;
+}
+	#cuerpoComent:hover {
+		background-color: white;
+		width: 500px;
+		height: 100%;
+		margin: auto;
+		border-radius: 15px;
+		padding-top: 50px;
+		padding-bottom: 50px;
+		opacity: 1;
+	}
+/*boton comentar*/
+#comentarBtn {
+	text-decoration: none;
+	width: 150px;
+	height: 40px;
+	border: none;
+	border-radius: 10px;
+	background: #CACACA;
+	transition: background-color .5s;
+}
+	#comentarBtn:hover {
+		background-color: #0F2955;
+		color: white;
+	}
+

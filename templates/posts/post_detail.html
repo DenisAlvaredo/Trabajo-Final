@@ -1,19 +1,149 @@
-{% extends 'home.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ post.titulo }}</title>
 
-{% block title %}{{ post.titulo }}{% endblock %}
-
-{% block content %}
-    <div class="post">
-        {% if post.fecha_publicacion %}
-            <div class="date">
-                {{ post.fecha_publicacion }}
-            </div>
-        {% endif %}
-        
-        <h2>{{ post.titulo }}</h2>
-        <p>{{ post.categoria }}</p>
-        <img src="{{post.miniatura.url}}">
-        <p>{{ post.contenido|linebreaksbr }}</p>
-
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/post_detail.css' %}"/>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/home.js' %}"></script>
+</head>
+<body background= "{% static 'img/fondo.jpg' %}">
+    <div id="franja2">
+        <table style="width: 100%;">
+            <tr>
+                <td id="icono"><a href="{% url 'home' %}"><img id="ichome" src="{% static 'img/home1.png' %}" alt='no funca'></a></td>
+                <td class="celda" id="titulo">Modo Lectura</td>
+                <td class="celda" id="buscar"></td>
+                <td class="celda" id="boton_buscar"></td>
+                <td class="celda" id="iniciar">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'home' %}" id="linkIniciar">{{ user.username }}</a>
+                    {% else %}
+                        <a href="{% url 'login' %}" id="linkIniciar">Inicar Sesión</a>
+                    {% endif %}
+                </td>
+                <td id="espacio">|</td>
+                <td id="registrar">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'logout' %}" id="salir">Salir</a>
+                    {% else %}
+                        <a href="{% url 'register' %}" id="linkRegister">Registrarse</a>
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
     </div>
-{% endblock %}
+    
+    <div style="text-align: center;"><img id="portada" src="{% static 'img/portada.png' %}" alt='no funca'></div>
+
+<header id="headCat">
+    <nav>
+        <ul id="listCat">
+            <li><a href="{% url 'home' %}">Pagina Principal</a></li>
+            <li>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'posts:post_create' %}" class="botones">Crear Post</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="botones">Crear Post</a>
+                {% endif %}
+            </li>
+            <li><a href="{% url 'home' %}">Filtro Fecha</a></li>
+            <li>
+                <a role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorías</a>
+                <ul aria-labelledby="navbarDropdown">
+                    <li><a href="{% url 'home' %}">Desactivar Filtro</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!-- categorias -->
+
+<!-- fin de las categorias -->
+   
+    <!-- POST -->
+    <div id="postdetail">
+        <table id="postCompleto" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    {% if post.fecha_publicacion %}
+                        <p id="fechaDetail">{{ post.fecha_publicacion }}</p>
+                    {% endif %}
+                </td>
+                <td><p id="catDetail">Categoría {{ post.categoria }}</p></td>
+            </tr>
+            <tr>
+                <td id="tituloDetailTD" colspan="2"><p id="tituloDetail">{{ post.titulo }}</p></td>
+            </tr>
+            <tr>
+                <td id="imagDetailTD" colspan="2"><img id="imagDetail" src="{{post.miniatura.url}}"></img></td>
+            </tr>
+            <tr>
+                <td id="contDetailTD" colspan="2"><p id="contDetail">{{ post.contenido|safe }}</p></td>
+            </tr>
+            <tr>
+                <td id="autorTD" colspan="2"><p id="campoAutor">Publicado por {{ post.author }}</p></td>
+            </tr>
+        </table>
+
+        <div id="cajaCom">
+            <table id=cajaTab cellspacing="0" cellpadding="0">
+                <tr>
+                    <td id=titCajaTD colspan="2">
+                        <p id="titCaja">Caja de Comentarios<p/>
+                    </td>
+                </tr>
+                <tr>
+                    {% if not post.comentarios.all %}
+                    <td id="noHayTD" colspan="2">
+                        <p id="noHay">No existen comentarios...
+                            {% if user.is_authenticated %}
+                            <a id="noHayLink" href="{% url 'posts:add_comment' pk=post.pk %}">Se el primero en comentar!</a>
+                            {% else %}
+                            <a id="noHayLink" href="{% url 'login' %}">Inicia sesión para comentar</a></p>
+                            {% endif%}
+                    </td>
+                    {% else %}
+                    {% for comentarios in post.comentarios.all %}
+                    <td id="nomUserTD">
+                        <p id="nomUser">{{ comentarios.user }} Dice: </p>
+                    </td>
+                    <td id="fechaComTD">
+                        <p id="fechaCom">Comentado el: {{ comentarios.date_added }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="comentTD" colspan="2">
+                        <p id="coment">{{ comentarios.comentario|safe }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    {% endfor %}
+                    <td id="opComentTD" colspan="2">
+                        {% if user.is_authenticated %}
+                            <a id="opComent" href="{% url 'posts:add_comment' pk=post.pk %}">Dejar comentario...</a>
+                        {% else %}
+                            <a id="opComent" href="{% url 'posts:add_comment' pk=post.pk %}">Inicia sesión para dejar un comentario...</a>
+                        {% endif %}
+                    </td>
+                    {% endif %}
+                </tr>
+            </table>
+        </div>
+        <table id="botonesEdDel" cellspacing="0" cellpadding="0">
+            <tr>
+                <td id="BotEditTD"><a id="BotEdit" href="{% url 'posts:post_edit' pk=post.pk %}">Editar Post</a></td>
+                <td id="BotDelTD"><a id="BotDel" href="{% url 'posts:post_delete' pk=post.pk %}">Borrar Post</a></td>
+            </tr>
+        </table>
+    </div>
+
+
+
+
+  <!-- POST -->
+</body>
+</html>

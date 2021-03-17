@@ -8,6 +8,7 @@ class HomeView(ListView):
 	template_name = 'home.html'
 	cats = Categoria.objects.all()
 	ordering = ['-fecha_publicacion']
+	#ordering2 = ['fecha_publicacion']
 
 	def get_context_data(self, *args, **kwargs):
 		cat_menu = Categoria.objects.all()

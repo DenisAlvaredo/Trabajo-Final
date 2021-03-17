@@ -1,0 +1,210 @@
+/*div contenido completo desde los botones hacia abajo*/
+#postdetail {
+	background: white;
+	margin: auto;
+	width: 980px;
+	height: 100%;
+	border-radius: 20px;
+	padding: 20px 20px 20px 20px;
+}
+/*tabla de los contenidos*/
+#postCompleto {
+	border-top: 2px solid #A7A6A6;
+}
+/*cont Fecha*/
+#fechaDetail {
+	text-align: left;
+	font-style: italic;
+	padding-left: 5px; 
+}
+/*cont categoria*/
+#catDetail {
+	text-align: right;
+	font-style: italic;
+	padding-right: 5px;
+}
+/*celda titulo*/
+#tituloDetailTD {
+	border-top: 2px solid #A7A6A6;
+	padding: 0px;
+}
+/*cont titulo*/
+#tituloDetail {
+	font-size: 60px;
+	font-weight: bolder;
+	text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
+	text-align: center;
+	padding: 0px;
+}
+/*celda imagen*/
+#imagDetailTD {
+	height: 500px;
+	width: 900px;
+	text-align: center;
+	padding: 0px;
+	padding-bottom: 15px;
+}
+/*cont imagen*/
+#imagDetail {
+	height: 100%;
+	text-align: center;
+	border: 10px solid #D4D1D1;
+	border-style: ridge;
+	filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 1));
+	padding: 0px;
+}
+/*celda del contenido del texto*/
+#contDetailTD {
+	padding: 10px 30px;
+	margin: auto;
+}
+/*contenido del texto*/
+#contDetail{
+	font-size: 18px;
+}
+/*celda Autor*/
+#autorTD {
+
+}
+#campoAutor {
+	text-align: right;
+	font-style: italic;
+	padding-right: 5px;	
+}
+
+
+/*caja comentarios*/
+#cajaCom {
+	margin: auto;
+	background: #BDBDBD;
+	border-bottom-left-radius: 18px;
+	border-bottom-right-radius: 18px;
+	padding-bottom: 20px;
+	width: 880px;
+	filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 1));
+}
+
+#cajaTab {
+	width: 100%;
+	padding: 10px 15px;
+}
+
+#titCajaTD {
+	margin: auto;
+}
+#titCaja {
+	text-align: center;
+	border-bottom: 2px solid white;
+	padding-bottom: 8px;
+	font-size: 30px;
+	font-style: bold;
+	font-weight: bolder;
+	text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
+}
+/*celda Usuario Dice*/
+#nomUserTD {
+	padding-bottom: 0px;
+	padding-top: 10px;
+}
+/*cont Usuario Dice*/
+#nomUser {
+	text-align: left;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+/*celda fecha*/
+#fechaComTD {
+	padding-bottom: 0px;
+}
+/*cont fecha*/
+#fechaCom {
+	text-align: right;
+	font-style: italic;
+	font-size: 15px;
+}
+
+/*celda comentario*/
+#comentTD {
+	margin: auto;
+	background: white;
+	padding: 0px 30px;
+	border-radius: 5px;
+	filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 1));
+}
+/*cont comentario*/
+#coment {
+
+}
+/*celda op comentar*/
+#opComentTD {
+	padding-top: 20px;
+	padding-left: 20px;
+}
+/*link comentar*/
+#opComent {
+	text-decoration: none;
+}
+
+
+#noHayTD {
+	margin: auto;
+	background: white;
+	padding: 0px 30px;
+	border-radius: 5px;
+	filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 1));
+	text-align: center;
+}
+#noHay {
+	font-style: bold;
+}
+#noHayLink {
+	text-decoration: none;
+}
+
+/*INICIO: botones borrar y editar*/
+
+#botonesEdDel {
+	width: 80%;
+	padding-top: 30px;
+	margin: auto;
+}
+
+#BotEditTD {
+	text-align: left;
+}
+
+#BotEdit {
+	text-decoration: none;
+	background: #CACACA;
+	border-radius: 5px;
+	font-size: 15px;
+	padding: 10px;
+	transition: (background-color, color .5s);
+	color: black;
+}
+	#BotEdit:hover {
+		background-color: #0F2955;
+		color: white;
+	}
+
+#BotDelTD {
+	text-align: right;
+}
+#BotDel {
+	text-decoration: none;
+	background: #CACACA;
+	border-radius: 5px;
+	font-size: 15px;
+	padding: 10px;
+	transition: (background-color, color .5s);
+	color: black;
+}
+	#BotDel:hover {
+		background-color: #0F2955;
+		color: white;
+	}
+
+
+/*FIN: botones borrar y editar*/

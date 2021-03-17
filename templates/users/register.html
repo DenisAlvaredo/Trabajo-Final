@@ -15,13 +15,9 @@
 		<table style="width: 100%;">
 			<tr>
 				<td id="icono"><a href="{% url 'home' %}"><img id="ichome" src="{% static 'img/home1.png' %}" alt='no funca'></a></td>
-				<td class="celda" id="titulo">Titulo/Categoria</td>
-				<td class="celda" id="buscar">
-					<form action="../../form-result.php" method="post" target="_blank">
-						<input id="buscador" type="search" name="buscar" placeholder="Buscar...">
-					</form>
-				</td>
-				<td class="celda" id="boton_buscar"><input id="boton" type="submit" value="Ir"></td>
+				<td class="celda" id="titulo"></td>
+				<td class="celda" id="buscar"></td>
+				<td class="celda" id="boton_buscar"></td>
 				<td class="celda" id="iniciar">
 					{% if user.is_authenticated %}
 	        			<p id="user">{{ user.username }} | </p>

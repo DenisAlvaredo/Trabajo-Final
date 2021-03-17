@@ -1,5 +1,14 @@
 from django.contrib import admin
-from .models import Categoria, Post
+from django import forms
+from .forms import PostForm
+from .models import Categoria, Post, Comentarios
+
+choices = Categoria.objects.all().values_list('nombre','nombre')
+
+choice_list = []
+
+for item in choices:
+	choice_list.append(item)
 
 #Barra de búsqueda para mi sitio de admin:
 class CategoriaAdmin(admin.ModelAdmin):
@@ -9,6 +18,14 @@ class CategoriaAdmin(admin.ModelAdmin):
 class PostAdmin(admin.ModelAdmin):
 	search_fields = ['titulo']
 	list_display = ('titulo', 'categoria')
-		
+	class Meta:
+		model = Post
+		fields = ('author','titulo','contenido')
+		widgets = {
+			'categoria': forms.Select(choices=choice_list, attrs={'class': 'form-control'})
+		}
+
+
 admin.site.register(Categoria, CategoriaAdmin) #agrego el sitio de segundas, para que se cargue la clase primero, de otro modo arroja error
 admin.site.register(Post, PostAdmin)
+admin.site.register(Comentarios)

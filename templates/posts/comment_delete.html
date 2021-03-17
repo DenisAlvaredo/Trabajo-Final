@@ -1,0 +1,13 @@
+{% extends 'home.html' %}
+
+{% block titulo %}
+	<title>Confirmación de borrado</title>
+{% endblock titulo %}
+
+{% block content %}
+<form method="POST">
+	{% csrf_token %}
+	<p><strong>Esta seguro de querer borrar el comentario {{ form }}?</strong></p>
+	<button type="submit" class="btn btn-danger">Confirmar</button>
+</form>
+{% endblock content %}

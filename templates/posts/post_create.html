@@ -16,12 +16,8 @@
 			<tr>
 				<td id="icono"><a href="{% url 'home' %}"><img id="ichome" src="{% static 'img/home1.png' %}" alt='no funca'></a></td>
 				<td class="celda" id="titulo">Editor de Post</td>
-				<td class="celda" id="buscar">
-					<form action="../../form-result.php" method="post" target="_blank">
-						<input id="buscador" type="search" name="buscar" placeholder="Buscar...">
-					</form>
-				</td>
-				<td class="celda" id="boton_buscar"><input id="boton" type="submit" value="Ir"></td>
+				<td class="celda" id="buscar"></td>
+				<td class="celda" id="boton_buscar"></td>
 				<td class="celda" id="iniciar">
 					{% if user.is_authenticated %}
 	        			{{ user.username }}
@@ -45,9 +41,9 @@
 
  	<div id="editor">
 		<form method="POST" enctype="multipart/form-data">{% csrf_token %}
-			{{ form|crispy }}
-			
-			<input id="subir" type="submit" name="CREAR POST">
+			{{form.media|safe}} 
+    		{{form.as_p|safe}}
+			<button id="subir" type="submit" name="CREAR POST" value="Subir Post">Subir Post</button>
 		</form>
 	</div>
 </body>

@@ -24,16 +24,6 @@
 		opacity: 1;
 	}
 
-#contenido {
-	font-family: 'Press Start 2P', cursive;
-}
-
-p {
-	padding-left: 25px;
-	font-size: 14px;
-	text-align: left;
-}
-
 #id_username {
 	margin-top: 30px;
 }
@@ -50,7 +40,6 @@ p {
 	border-radius: 10px;
 	background: #CACACA;
 	transition: background-color .5s;
-	font-family: 'Press Start 2P', cursive;
 }
 	#botonIniciar:hover {
 		background-color: #0F2955;
