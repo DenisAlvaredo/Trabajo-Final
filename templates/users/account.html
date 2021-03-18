@@ -43,8 +43,33 @@
 	<div class="form-group">
 		<form method="POST">
 		    {% csrf_token %}
-		    {{ form.as_p }}
-		    <button id="botonIniciar" type="submit">update profile</button>
+		    <table>
+		    	<tr>
+		    		<td>{{ user.username }}</td>
+		    		<br></br>
+		    		<td><p>{{ user.first_name }}</p></td>
+		    		<br></br>
+		    		<td>{{ user.last_name }}</td>
+		    		<br></br>
+		    		<td>{{ user.avatar }}</td>
+		    		<br></br>
+		    		<td>{{ user.email }}</td>
+		    		<br></br>
+		    		<td>{{ user.nacionalidad }}</td>
+		    		<br></br>
+		    		<td>{{ user.bio }}</td>
+		    		<br></br>
+		    		<td>{{ user.wapp }}</td>
+		    		<br></br>
+		    		<td>{{ user.face }}</td>
+		    		<br></br>
+		    		<td>{{ user.web }}</td>
+		    	</tr>
+		    </table>
+		</form>
+		<form method="POST">
+		    {{ form.as_table }}
+		    {% csrf_token %}
 		</form>
 	</div>
 </div>

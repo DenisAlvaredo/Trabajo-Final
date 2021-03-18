@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth
 from . import views
 from . views import *
-from apps.users.views import RegistrarUsuario, EditarUsuario
+from apps.users.views import RegistrarUsuario, EditarUsuario#, VerUsuario
 from apps.posts.views import CategoryView
 
 
@@ -32,6 +32,7 @@ urlpatterns = [
     path('Logout/', auth.LogoutView.as_view(), name = 'logout'),
     path('Register/', RegistrarUsuario.as_view(), name = 'register'),
     path('Edit_Profile/', EditarUsuario.as_view(), name = 'editprofile'),
+    #path('Account/', VerUsuario.as_view(), name = 'account'),
     #path('category/<str:cats>', views.CategoryView, name = 'category'),
     #path('', include('apps.posts.urls', 'post')), #aqui se le avisa que la app post tiene su propia url y , 'post' sera el nombre que represente a todas las urls dentro de la aplicacion posts#
     path('ckeditor/', include('ckeditor_uploader.urls')),

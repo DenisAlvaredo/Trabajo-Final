@@ -15,6 +15,9 @@ class PostCreateView(LoginRequiredMixin, CreateView): #entra heredando el create
 	form_class = PostForm
 	template_name = 'posts/post_create.html'
 	success_url = reverse_lazy('home')
+	def form_valid(self,form):
+		form.instance.author = self.request.user
+		return super().form_valid(form)
 
 
 def CategoryView(request, cats):

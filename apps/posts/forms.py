@@ -12,10 +12,11 @@ class PostForm(forms.ModelForm):
 	class Meta:
 		model = Post
 		fields = ('__all__')
-		exclude = ['slug', 'fecha_publicacion']
+		exclude = ['slug', 'fecha_publicacion', 'author']
 		widgets = {
 			'categoria': forms.Select(choices=choice_list, attrs={'class': 'form-control'})
 		}
+	
 
 class CommentForm(forms.ModelForm):
 	class Meta:
