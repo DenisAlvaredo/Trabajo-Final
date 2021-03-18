@@ -34,6 +34,9 @@ class PostUpdateView(UpdateView):
 	model = Post
 	template_name = 'posts/post_create.html'
 	success_url = reverse_lazy('home')
+	def form_valid(self,form):
+		form.instance.author = self.request.user
+		return super().form_valid(form)
 
 class PostDeleteView(DeleteView):
 	model = Post

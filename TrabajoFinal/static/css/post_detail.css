@@ -139,7 +139,7 @@
 }
 /*celda op comentar*/
 #opComentTD {
-	padding-top: 20px;
+	padding-top: 40px;
 	padding-left: 20px;
 }
 /*link comentar*/
@@ -163,7 +163,21 @@
 	text-decoration: none;
 }
 
-/*INICIO: botones borrar y editar*/
+/*INICIO: borrar y editar comentario*/
+
+#EditDelTD {
+	padding-right: 20px;
+}
+.EditDel {
+	
+}
+#EditDelText {
+	text-align: right;
+}
+
+/*FIN: borrar y editar comentario*/
+
+/*INICIO: botones borrar y editar post*/
 
 #botonesEdDel {
 	width: 80%;

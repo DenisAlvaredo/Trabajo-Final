@@ -121,8 +121,13 @@
                     </td>
                 </tr>
                 <tr>
+                    {% if comentarios.user == request.user %}
+                    <td id ="EditDelTD" colspan="2"><p id="EditDelText"><a class="EditDel" href="#">Editar</a> | <a class="EditDel" href="#">Borrar</a></p></td>
+                    {% endif %}
+                </tr>
+                <tr>
                     {% endfor %}
-                    <td id="opComentTD" colspan="2">
+                    <td id="opComentTD">
                         {% if user.is_authenticated %}
                             <a id="opComent" href="{% url 'posts:add_comment' pk=post.pk %}">Dejar comentario...</a>
                         {% else %}
@@ -133,12 +138,14 @@
                 </tr>
             </table>
         </div>
+        {% if post.author == request.user %}
         <table id="botonesEdDel" cellspacing="0" cellpadding="0">
             <tr>
                 <td id="BotEditTD"><a id="BotEdit" href="{% url 'posts:post_edit' pk=post.pk %}">Editar Post</a></td>
                 <td id="BotDelTD"><a id="BotDel" href="{% url 'posts:post_delete' pk=post.pk %}">Borrar Post</a></td>
             </tr>
         </table>
+        {% endif %}
     </div>
 
 
