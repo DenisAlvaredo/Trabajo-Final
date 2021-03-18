@@ -20,7 +20,7 @@ class PostAdmin(admin.ModelAdmin):
 	list_display = ('titulo', 'categoria')
 	class Meta:
 		model = Post
-		fields = ('author','titulo','contenido')
+		fields = ('titulo','contenido')
 		widgets = {
 			'categoria': forms.Select(choices=choice_list, attrs={'class': 'form-control'})
 		}
