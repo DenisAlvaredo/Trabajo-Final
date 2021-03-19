@@ -13,6 +13,7 @@ urlpatterns = [
 	path('<int:pk>/delete/', PostDeleteView.as_view(), name='post_delete'),
 	path('article/<int:pk>/comment/', AddCommentView.as_view(), name='add_comment'),
 	path('article/<int:pk>/del_comment/', DelCommentView.as_view(), name='del_comment'),
+	path('article/<int:pk>/edit_comment/', UpDateCommentView.as_view(), name='edit_comment'),
 
 	path('<int:year>/<str:month>/',
    PostMonthArchiveView.as_view(),
