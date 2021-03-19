@@ -122,7 +122,7 @@
                 </tr>
                 <tr>
                     {% if comentarios.user == request.user %}
-                    <td id ="EditDelTD" colspan="2"><p id="EditDelText"><a class="EditDel" href="#">Editar</a> | <a class="EditDel" href="#">Borrar</a></p></td>
+                    <td id ="EditDelTD" colspan="2"><p id="EditDelText" href="#"><a class="EditDel">Editar</a> | <a class="EditDel" href="{% url 'posts:del_comment' pk=comentarios.pk %}">Borrar</a></p></td>
                     {% endif %}
                 </tr>
                 <tr>
