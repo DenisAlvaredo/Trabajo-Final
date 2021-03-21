@@ -60,7 +60,7 @@ class Comentarios(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)
     post = models.ForeignKey(Post, related_name="comentarios", on_delete=models.CASCADE)
     # Se asocia la clase Comment con la clase Post y si se borra post se borra el comment
-    comentario = models.TextField()
+    comentario = RichTextField(max_length = 200)
     date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

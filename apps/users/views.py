@@ -22,9 +22,9 @@ class EditarUsuario(UpdateView):
 	def get_object(self):
 		return self.request.user
 
-#class VerUsuario(ListView):
-#	model = User
-#	form_class = VerUsuarioForm
-#	template_name = 'users/account.html'
-#	success_url = reverse_lazy('home')
+class VerUsuario(ListView):
+	model = User
+	template_name = 'users/account.html'
+	success_url = reverse_lazy('home')
+
 		

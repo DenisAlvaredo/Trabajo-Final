@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{% block title %}Editar Perfil{% endblock %}</title>
+	<title>Perfil</title>
 	{% load static %}
 	<link rel="stylesheet" href="{% static 'css/estilos.css' %}"/>
 	<link rel="stylesheet" href="{% static 'css/login.css' %}"/>
-	<link rel="preconnect" href="https://fonts.gstatic.com"/>
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
-	<script src="{% static 'js/jquery.js' %}"></script>
-	<script src="{% static 'js/home.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'css/account.css' %}"/>
 </head>
 <body background= "{% static 'img/fondo-login.jpg' %}">
-	<div id="franja2">
+<div id="franja2">
 		<table style="width: 100%;">
 			<tr>
 				<td id="icono"><a href="{% url 'home' %}"><img id="ichome" src="{% static 'img/home1.png' %}" alt='no funca'></a></td>
-				<td class="celda" id="titulo">Editar Perfil</td>
+				<td class="celda" id="titulo">Perfil</td>
 				<td class="celda" id="buscar"></td>
 				<td class="celda" id="boton_buscar"></td>
 				<td class="celda" id="iniciar">
-					{% if user.is_authenticated %}
-	        			<p id="user">{{ user.username }} | </p>
+					{% if user.author == user.request %}
+	        			<a href="{% url 'profile' %}" id="linkIniciar">{{ user.username }}</a>
 	        		{% else %}
 	    		    	<a href="{% url 'login' %}" id="linkIniciar">Inicar Sesión</a>
 	  				{% endif %}
@@ -37,43 +34,43 @@
 		</table>
 	</div>
 
-{% block content %}
-<div id="fondo">
-	<h1>Editar Perfil</h1>
-	<div class="form-group">
-		<form method="POST">
-		    {% csrf_token %}
-		    <table>
-		    	<tr>
-		    		<td>{{ user.username }}</td>
-		    		<br></br>
-		    		<td><p>{{ user.first_name }}</p></td>
-		    		<br></br>
-		    		<td>{{ user.last_name }}</td>
-		    		<br></br>
-		    		<td>{{ user.avatar }}</td>
-		    		<br></br>
-		    		<td>{{ user.email }}</td>
-		    		<br></br>
-		    		<td>{{ user.nacionalidad }}</td>
-		    		<br></br>
-		    		<td>{{ user.bio }}</td>
-		    		<br></br>
-		    		<td>{{ user.wapp }}</td>
-		    		<br></br>
-		    		<td>{{ user.face }}</td>
-		    		<br></br>
-		    		<td>{{ user.web }}</td>
-		    	</tr>
-		    </table>
-		</form>
-		<form method="POST">
-		    {{ form.as_table }}
-		    {% csrf_token %}
-		</form>
+<div id="perfilDIV">
+	<div id="perfilTablaDIV">
+	    <table id="perfilTabla" cellspacing="0" cellpadding="0">
+	    	<tr>
+	    		<td id="userTitTD"><p id="userTit">{{ user.username }}</p></td>
+	    		<td id="avatarTD">
+	    			{% if user.avatar %}
+	    				<img id="avatarImg" src="{{ user.avatar.url }}" alt='no funca'></img>
+	    			{% else %}
+	    				<img id="avatarImg" src="{% static 'img/avat.png' %}" alt='no funca'></img>
+	    			{% endif %}
+	    		</td>
+	    	</tr>
+	    	<tr>
+	    		<td class="subtitTD"><p class="subtit">Nombre: </p><p class="subtitCont">{{ user.first_name }}</p></td>
+	    		<td class="subtitTD"><p class="subtit">Apellido: </p><p class="subtitCont">{{ user.last_name }}</p></td>
+	    	</tr>
+	    	<tr>
+	    		<td class="subtitTD"><p class="subtit">Email: </p><p class="subtitCont">{{ user.email }}</p></td>
+	    		<td class="subtitTD"><p class="subtit">Nacionalidad: </p><p class="subtitCont">{{ user.nacionalidad }}</p></td>
+	    	</tr>
+	    	<tr>	
+	    		<td class="subtitTD"><p class="subtit">Biografía: </p><p class="subtitCont">{{ user.bio }}</p></td>
+	    		<td class="subtitTD"><p class="subtit">Whatsapp: </p><p class="subtitCont">{{ user.wapp }}</p></td>
+	    	</tr>
+	    	<tr>	
+	    		<td class="subtitTD"><p class="subtit">Facebook: </p><p class="subtitCont">{{ user.face }}</p></td>
+	    		<td class="subtitTD"><p class="subtit">Página Web: </p><p class="subtitCont">{{ user.web }}</p></td>
+	    	</tr>
+	    	<tr>
+	    		<td id="BotonEditarDIV" colspan="2">
+	    			<a id ="BotonEditar" href="{% url 'editprofile' %}">Editar Perfil</a>
+	    		</td>
+	    	</tr>
+	    </table>
 	</div>
 </div>
-{% endblock %}
 
 </body>
 </html>

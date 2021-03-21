@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{% block title %}Editar Perfil{% endblock %}</title>
+	<title>Editar Perfil</title>
 	{% load static %}
 	<link rel="stylesheet" href="{% static 'css/estilos.css' %}"/>
 	<link rel="stylesheet" href="{% static 'css/login.css' %}"/>
-	<link rel="preconnect" href="https://fonts.gstatic.com"/>
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
-	<script src="{% static 'js/jquery.js' %}"></script>
-	<script src="{% static 'js/home.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'css/edit_profile.css' %}"/>
 </head>
 <body background= "{% static 'img/fondo-login.jpg' %}">
 	<div id="franja2">
@@ -18,14 +15,8 @@
 				<td class="celda" id="titulo">Editar Perfil</td>
 				<td class="celda" id="buscar"></td>
 				<td class="celda" id="boton_buscar"></td>
-				<td class="celda" id="iniciar">
-					{% if user.is_authenticated %}
-	        			<p id="user">{{ user.username }} | </p>
-	        		{% else %}
-	    		    	<a href="{% url 'login' %}" id="linkIniciar">Inicar Sesión</a>
-	  				{% endif %}
-				</td>
-				<td id="espacio">|</td>
+				<td class="celda" id="iniciar"></td>
+				<td id="espacio"></td>
 				<td id="registrar">
 					{% if user.is_authenticated %}
 	        			<a href="{% url 'logout' %}" id="salir">Salir</a>
@@ -37,18 +28,20 @@
 		</table>
 	</div>
 
-{% block content %}
-<div id="fondo">
-	<h1>Editar Perfil</h1>
-	<div class="form-group">
+<div id="editPerfilDIV">
+	<p id="EditPerfilTit">Editar Perfil</p>
+	<div id="divTabla">
 		<form method="POST">
-		    {% csrf_token %}
-		    {{ form.as_p }}
-		    <button id="botonIniciar" type="submit">update profile</button>
+			<table id="tablaEditPerfil" cellspacing="8" cellpadding="0">
+			    {% csrf_token %}
+			    {{ form.as_table }}
+		    </table>
+		    <p style="text-align: center;"><button id="BotSave" type="submit">Guardar Cambios</button></p>
 		</form>
 	</div>
 </div>
-{% endblock %}
+
 
 </body>
 </html>
+

@@ -20,7 +20,7 @@
 				<td class="celda" id="boton_buscar"></td>
 				<td class="celda" id="iniciar">
 					{% if user.is_authenticated %}
-	        			{{ user.username }}
+	        			<a href="{% url 'profile' %}" id="linkIniciar">{{ user.username }}</a>
 	        		{% else %}
 	    		    	<a href="{% url 'login' %}" id="linkIniciar">Inicar Sesión</a>
 	  				{% endif %}

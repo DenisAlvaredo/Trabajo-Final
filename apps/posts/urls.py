@@ -14,6 +14,7 @@ urlpatterns = [
 	path('article/<int:pk>/comment/', AddCommentView.as_view(), name='add_comment'),
 	path('article/<int:pk>/del_comment/', DelCommentView.as_view(), name='del_comment'),
 	path('article/<int:pk>/edit_comment/', UpDateCommentView.as_view(), name='edit_comment'),
+	#path('MyPosts/<int:pk>', views.MyPostsView, name = 'myposts'),
 
 	path('<int:year>/<str:month>/',
    PostMonthArchiveView.as_view(),

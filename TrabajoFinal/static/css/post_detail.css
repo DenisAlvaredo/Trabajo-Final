@@ -76,7 +76,7 @@
 /*caja comentarios*/
 #cajaCom {
 	margin: auto;
-	background: #BDBDBD;
+	background: #D8D8D8;
 	border-bottom-left-radius: 18px;
 	border-bottom-right-radius: 18px;
 	padding-bottom: 20px;
@@ -212,7 +212,8 @@
 	border-radius: 5px;
 	font-size: 15px;
 	padding: 10px;
-	transition: (background-color, color .5s);
+	transition: background-color .5s;
+	transition: color .5s;
 	color: black;
 }
 	#BotDel:hover {

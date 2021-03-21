@@ -1,0 +1,82 @@
+#perfilDIV {
+	background: white;
+	width: 980px;
+	height: 100%;
+	border-radius: 20px;
+	padding: 20px;
+	margin: auto;
+	margin-top: 50px;
+}
+
+#perfilTablaDIV {
+	width: 720px;
+	margin: auto;
+	padding: 20px;
+	border-radius: 20px;
+	height: 100%;
+	background: #D8D8D8;
+	filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 1));
+}
+
+#perfilTabla {
+	width: 700px;
+	margin:auto;
+	/*border: 1px solid black;*/
+}
+
+#userTit {
+	width: auto;
+	font-size: 40px;
+	text-align: center;
+	font-weight: bold;
+	text-shadow: 0px 0px 2px white,
+				2px 0px 10px red,
+				0px 2px 10px red,
+				-2px 0px 10px red,
+				0px -2px 10px red;
+}
+#avatarTD {
+	text-align: center;
+}
+#avatarImg {
+	/*height: 200px;*/
+	width: 270px;
+	height: 270px;
+}
+
+.subtitTD {
+	padding: 0px 20px;
+}
+.subtit {
+	font-style: italic;
+	font-weight: bolder;
+}
+.subtitCont {
+	background: white;
+	padding: 10px 0px 10px 20px;
+	margin-bottom: 20px;
+	margin-top: -13Px;
+	border-radius: 7px;
+	filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 1));
+}
+
+#BotonEditarDIV {
+	margin: auto;
+	text-align: center;
+	padding: 20px;
+}
+#BotonEditar {
+	font-size: 15px;
+	text-decoration: none;
+	border-radius: 13px;
+	width: 100px;
+	color: black;
+	padding: 20px;
+	background-color: #CACACA;
+	transition: background-color .5s;
+	transition: color .5s;
+}
+	#BotonEditar:hover {
+		background-color: #0F2955;
+		color: white;
+	}

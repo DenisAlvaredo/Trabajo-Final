@@ -1,4 +1,5 @@
 from django import forms
+from django.forms.widgets import SelectDateWidget
 from .models import Post, Categoria, Comentarios
 
 choices = Categoria.objects.all().values_list('nombre','nombre')
@@ -22,3 +23,9 @@ class CommentForm(forms.ModelForm):
 	class Meta:
 		model = Comentarios
 		fields = ('comentario',)
+
+
+
+class FormFecha(forms.Form):
+	Desde = forms.DateField(widget = SelectDateWidget())
+	Hasta = forms.DateField(widget = SelectDateWidget())

@@ -18,7 +18,7 @@
 				<td class="celda" id="boton_buscar"></td>
 				<td class="celda" id="iniciar">
 					{% if user.is_authenticated %}
-	        			<a href="{% url 'editprofile' %}" id="linkIniciar">{{ user.username }}</a>
+	        			<a href="{% url 'profile' %}" id="linkIniciar">{{ user.username }}</a>
 	        		{% else %}
 	    		    	<a href="{% url 'login' %}" id="linkIniciar">Inicar Sesión</a>
 	  				{% endif %}
@@ -64,6 +64,11 @@
 	</nav>
 </header>
 <!--Fin: Botones debajo de banner-->
+
+<form methor="GET">
+	{{ fecha.as_p }}
+	<button type="submit">Filtrar</button>
+</form>
 
 {% block content %}
 
