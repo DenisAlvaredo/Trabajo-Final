@@ -14,6 +14,7 @@ class HomeView(ListView):
 		cat_menu = Categoria.objects.all()
 		context = super(HomeView, self).get_context_data(*args, **kwargs)
 		context["cat_menu"] = cat_menu
+		context["fecha"] = FormFecha
 		return context
 
 def FechasHomeView(request):
