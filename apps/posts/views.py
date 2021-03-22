@@ -24,10 +24,16 @@ def CategoryView(request, cats):
 	category_posts = Post.objects.filter(categoria=cats.replace('-', ' ')).order_by('-fecha_publicacion')
 	return render(request, 'posts/categorias.html', {'cats':cats.title().replace('-', ' '), 'category_posts':category_posts})
 
-	def get_context_data(self, **kwargs):
-		context = super().get_context_data(**kwargs)
-		context["fecha"] = FormFecha
-		return context
+def FechasView(request):
+	model = Post
+	fechas = Post.objects.filter(fecha_publicacion__lte=timezone.now()).order_by('fecha_publicacion')
+	context = super(CategoryView, self).get_context_data(*args, **kwargs)
+	context["fecha"] = FormFecha
+	return render(context, request, 'posts/categorias.html', {'posts': posts})
+#	def get_context_data(self, **kwargs):
+#		context = super().get_context_data(**kwargs)
+#		context["fecha"] = FormFecha
+#		return context
 
 
 
