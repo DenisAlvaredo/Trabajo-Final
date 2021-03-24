@@ -1,13 +1,15 @@
-{% extends 'home.html' %}
+{% extends 'posts/post_confirm_delete.html' %}
 
 {% block titulo %}
-	<title>Confirmación de borrado</title>
+	Borrar Comentario
 {% endblock titulo %}
 
 {% block content %}
-<form method="POST">
-	{% csrf_token %}
-	<p><strong>Esta seguro de querer borrar el comentario {{ form }}?</strong></p>
-	<button type="submit" class="btn btn-danger">Confirmar</button>
-</form>
+<div id="cuerpoComent">
+	<form method="POST">
+		{% csrf_token %}
+		<p><strong>Está a punto de borrar el comentario {{ form }}?</strong></p>
+		<button type="submit" id="comentarBtn">Confirmar</button>
+	</form>
+</div>
 {% endblock content %}

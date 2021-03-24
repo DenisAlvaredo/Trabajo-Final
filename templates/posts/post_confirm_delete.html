@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{% block title %}Borrar Post{% endblock %}</title>
+	<title>{% block titulo %}Borrar Post{% endblock titulo %}</title>
 
 	{% load static %}
 	<link rel="stylesheet" href="{% static 'css/estilos.css' %}"/>
@@ -13,7 +13,7 @@
 		<table style="width: 100%;">
 			<tr>
 				<td id="icono"><a href="{% url 'home' %}"><img id="ichome" src="{% static 'img/home1.png' %}" alt='no funca'></a></td>
-				<td class="celda" id="titulo">Borrar Post</td>
+				<td class="celda" id="titulo">Borrado de información</td>
 				<td class="celda" id="buscar"></td>
 				<td class="celda" id="boton_buscar"></td>
 				<td class="celda" id="iniciar">
@@ -37,6 +37,8 @@
 	
  	<div style="text-align: center;"><img id="portada" src="{% static 'img/portada.png' %}" alt='no funca'></div>
 
+{% block content %}
+
 <div id="cuerpoComent">
 	<form method="POST">
 		{% csrf_token %}
@@ -44,3 +46,5 @@
 		<button type="submit" id="comentarBtn">Confirmar</button>
 	</form>
 </div>
+
+{% endblock content %}

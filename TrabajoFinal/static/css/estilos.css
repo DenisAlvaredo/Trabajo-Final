@@ -180,7 +180,7 @@ body {
 
 /*Inicio NavBar debajo de Banner*/
 #headCat {
-	width: 1000px;
+	width: 600px;
 	height: 50px;
 	margin: auto;
 	text-align: center;
@@ -307,23 +307,32 @@ ul{
 	padding: 0px;
 	background: white;
 	border-bottom-right-radius: 11px;
+	background: #CACACA;
+
 }
 #pComent {
 	text-align: center;
+	font-style: italic;
+	font-weight: bold;
 }
 #fecha {
-	background: white;
+	background: #CACACA;
 	border-bottom-left-radius: 11px;
 }
 #pFecha {
 	padding-left: 8px;
+	font-style: italic;
+	font-weight: bold;
 }
 #autor {
 	background: white;
+	background: #CACACA;
 }
 #pAutor {
 	text-align: right;
 	padding: 0px 10px 0px 10px;
+	font-style: italic;
+	font-weight: bold;
 }
 
 /*INICIO:para cuando no haya categorias*/

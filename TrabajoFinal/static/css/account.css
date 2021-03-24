@@ -69,10 +69,11 @@
 	font-size: 15px;
 	text-decoration: none;
 	border-radius: 13px;
+	border: 1px solid black;
 	width: 100px;
 	color: black;
 	padding: 20px;
-	background-color: #CACACA;
+	background-color: #E6E6E6;
 	transition: background-color .5s;
 	transition: color .5s;
 }
