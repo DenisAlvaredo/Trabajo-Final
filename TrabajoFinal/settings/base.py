@@ -94,7 +94,7 @@ WSGI_APPLICATION = 'TrabajoFinal.wsgi.application'
 # Ckeditor
 CKEDITOR_CONFIGS = {
     'default': {
-        'skin': 'moono',
+        'skin': 'moono-dark',
         # 'skin': 'office2013',
         'toolbar': [
             {'name': 'document', 'items': ['Source', '-', 'Preview']},
@@ -112,8 +112,10 @@ CKEDITOR_CONFIGS = {
             {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
             {'name': 'colors', 'items': ['TextColor', 'BGColor']},
             {'name': 'tools', 'items': ['Maximize', 'ShowBlocks']},
+            {'name': 'youtube','items': ['Youtube',]}
         ],
         'width': '100%',
+        'extraPlugins': 'link,iframe,colorbutton,youtube',
     }
 }
 

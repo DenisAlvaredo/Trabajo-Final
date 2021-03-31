@@ -5,6 +5,8 @@
 
 	{% load static %}
 	<link rel="stylesheet" href="{% static 'css/estilos.css' %}"/>
+	<link rel="stylesheet" href="{% static 'js/home.js' %}"/>
+	<link rel="stylesheet" href="{% static 'js/jquery.js' %}"/>
 </head>
 <body background= "{% static 'img/fondo.jpg' %}">
 	<div id="franja2">
@@ -66,7 +68,6 @@
 
 {% block content %}
 
-
     
 <!--prueba del filtro fecha-->
 
@@ -97,6 +98,8 @@
 		</div>
 		{% endfor %}
 	</div>
+
+
 
   <!-- FINALIZA CONTENIDO DE LOS POSTS -->
 {% endblock %}

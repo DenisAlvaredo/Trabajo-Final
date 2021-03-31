@@ -195,7 +195,8 @@
 	border-radius: 5px;
 	font-size: 15px;
 	padding: 10px;
-	transition: (background-color, color .5s);
+	transition: background-color .5s;
+	transition: color .5s;
 	color: black;
 }
 	#BotEdit:hover {
