@@ -5,8 +5,8 @@
 
 	{% load static %}
 	<link rel="stylesheet" href="{% static 'css/estilos.css' %}"/>
-	<link rel="stylesheet" href="{% static 'js/home.js' %}"/>
-	<link rel="stylesheet" href="{% static 'js/jquery.js' %}"/>
+	<script src="{% static 'js/jquery.js' %}"></script>
+	<script src="{% static 'js/home.js' %}"></script>
 </head>
 <body background= "{% static 'img/fondo.jpg' %}">
 	<div id="franja2">
@@ -70,6 +70,8 @@
 
     
 <!--prueba del filtro fecha-->
+<!-- Boton hacia arriba -->
+
 
 
 
@@ -99,7 +101,9 @@
 		{% endfor %}
 	</div>
 
-
+<a class="ir-arriba"  javascript:void(0) title="Volver arriba">
+    <li id="flechaUp"><img id="imgFlecha" src="{% static 'img/flecha.png' %}"></li>
+</a>
 
   <!-- FINALIZA CONTENIDO DE LOS POSTS -->
 {% endblock %}

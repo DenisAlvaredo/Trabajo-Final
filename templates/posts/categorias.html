@@ -86,6 +86,10 @@
 			</div>
 		{% endfor %}
 	</div>
+
+	<a class="ir-arriba"  javascript:void(0) title="Volver arriba">
+    	<li id="flechaUp"><img id="imgFlecha" src="{% static 'img/flecha.png' %}"></li>
+	</a>
 {% else %}
 	<div id="sincatDiv">
 		<p id="sincatP">No existen publicaciones para esta categoría. <a id="sincatLink" href="{% url 'home' %}">Volver</a></p>

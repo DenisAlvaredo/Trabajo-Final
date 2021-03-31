@@ -5,8 +5,6 @@
 	{% load static %}
 	<link rel="stylesheet" href="{% static 'css/estilos.css' %}"/>
 	<link rel="stylesheet" href="{% static 'css/login.css' %}"/>
-	<link rel="preconnect" href="https://fonts.gstatic.com"/>
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
 	<script src="{% static 'js/jquery.js' %}"></script>
 	<script src="{% static 'js/home.js' %}"></script>
 </head>
@@ -25,7 +23,7 @@
 	    		    	<a href="{% url 'login' %}" id="linkIniciar">Inicar Sesión</a>
 	  				{% endif %}
 				</td>
-				<td id="espacio">|</td>
+				<td id="espacio"> |</td>
 				<td id="registrar">
 					{% if user.is_authenticated %}
 	        			<a href="{% url 'logout' %}" id="salir">Salir</a>
